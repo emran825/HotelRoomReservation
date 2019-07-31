@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                    <form:button id="editbuttons" type="submit" name="Add" class="btn btn-success">Add Details</form:button>
+                                    <form:button id="editbuttons" type="submit" name="Add" class="btn btn-success">Payment</form:button>
 
                                         <a href="showproductpage"><button id="show" type="button" class="btn">Cancel</button></a> 
                                     </div>
