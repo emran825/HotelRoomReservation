@@ -117,12 +117,13 @@ public class RoomServiceImple implements RoomService {
         Session s = sessionFactory.openSession();
         Transaction t = s.getTransaction();
         t.begin();
+        //===================**************========================
 
-        // String hql = "SELECT r from Room r WHERE r.roomtypeid =:roomtypeid AND r.catid =:roomcategory";
-        //String hql = "SELECT r from Room r WHERE r.roomtypeid =:roomtypeid AND r.catid =:roomcategory AND r.status = 'Empty'";
-        String hql = "SELECT r from Room r WHERE r.roomtypeid =:roomtypeid AND r.catid =:roomcategory"
-                + " AND not EXISTS (SELECT b from Roombooking b where b.startdate>=:startdate AND b.enddate <=:enddate) AND r.status = 'Empty' ";
+        //        String hql = "SELECT r from Room r WHERE r.roomtypeid =:roomtypeid AND r.catid =:roomcategory"
+//                + " AND not EXISTS (SELECT b from Roombooking b where b.startdate>=:startdate AND b.enddate <=:enddate) AND r.status = 'Empty' ";   
+        String hql = "SELECT r from Room  r WHERE r.roomtypeid =:roomtypeid AND r.catid =:roomcategory AND r.roomid not in (SELECT re.roomid from Roombooking  re where (re.startdate >= :startdate AND re.startdate < :enddate) or ( re.enddate>= :startdate and re.enddate < :enddate)  or ( re.startdate< :enddate and re.enddate >= :startdate ))";
 
+        //===================**************========================
         Query query = s.createQuery(hql);
 //         query.setString("roomtypeid", typeroom);
         query.setInteger("roomtypeid", typeroom);
