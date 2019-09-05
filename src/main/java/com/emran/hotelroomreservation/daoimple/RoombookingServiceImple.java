@@ -103,6 +103,36 @@ public class RoombookingServiceImple implements RoombookingService{
         s.close();
         return customerinfolistgson;
     }
+    //========================***********============
+     @Override
+    public String showAllRoombookinfo() {
+        
+        Session s = sessionFactory.openSession();
+        Transaction t = s.getTransaction();
+        t.begin();
+        
+       // List<Roombooking> roombookinglist = s.createQuery("select b.bookingid,b.startdate,b.enddate,b.emailid, r.roomnumber, r.roomtype, r.catname,c.username from Roombooking b, Customerinfo c ,Room r where c.custid= b.custid and b.roomid=r.roomid ").list();
+        List<Roombooking> roombookinglist = s.createQuery("select b.bookingid, c.username ,r.roomnumber,r.roomtype,r.catname, b.startdate, b.enddate, b.emailid from Roombooking b, Customerinfo c ,Room r where c.custid= b.custid and b.roomid=r.roomid ").list();
+
+        Gson g = new Gson();
+        String customerinfolistgson = g.toJson(roombookinglist);
+        t.commit();
+        s.close();
+        return customerinfolistgson;
+    }
+    
+     @Override
+    public String admindelete(int id) {
+        Session s = sessionFactory.openSession();
+        Transaction t = s.getTransaction();
+        t.begin();
+        Roombooking roombooking = (Roombooking) s.get(Roombooking.class, id);
+        s.delete(roombooking);
+        t.commit();
+        s.close();
+
+        return null;
+    }
 
     
     

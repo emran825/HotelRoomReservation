@@ -18,4 +18,8 @@ public interface RoombookingService {
     public String viewAllRoombooking();
     public String viewAllRoombookin(String a,String b,String c,String d);
     public Roombooking viewRoom(int id);   
+    
+   //====================
+     public String showAllRoombookinfo();
+     public String admindelete(int id);
 }

@@ -133,6 +133,7 @@
                         <a class="dropdown-item" href="roomcategory">Add Room Category</a>
                         <a class="dropdown-item" href="roomadd">Add Room</a>
                         <a class="dropdown-item" href="customerservice">Add Customer Service</a>
+                        <a class="dropdown-item" href="showBookingInfo">Room Booking Information</a>
                         <a class="dropdown-item" href="reportView">Report</a>
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header">Other Pages:</h6>
@@ -199,79 +200,79 @@
                                 <!--                                          Category Id  -->
 
 
-                                
-<!--                                ===================================================-->
-                                           
+
+                                <!--                                ===================================================-->
+
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                             <label>Room Category :</label>
+                                            <label>Room Category :</label>
                                             <select class="form-control" ng-model="x" ng-options="x.catname for x in categoryname" required="true">
                                                 <option value="x.catname">-- Room Category  --</option>
                                             </select>
                                             <form:hidden  class="form-control" value="{{x.catname}}" path="catname"></form:hidden>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
 
 
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Category ID :</label>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Category ID :</label>
                                             <form:input value="{{x.catid}}" class="form-control" Placeholder="Category ID"
                                                         type="text" path="catid" readonly="true" required="true"></form:input>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                                
-<!--                                ===================================================-->
-<!--                               ============================================================-->
-                                         <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                             <label>Room Type :</label>
-                                            <select class="form-control" ng-model="r" ng-options="r.roomtype for r in roomtypeallname" required="true">
-                                                <option value="r.roomtype">-- Room Type  --</option>
-                                            </select>
+
+                                    <!--                                ===================================================-->
+                                    <!--                               ============================================================-->
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Room Type :</label>
+                                                <select class="form-control" ng-model="r" ng-options="r.roomtype for r in roomtypeallname" required="true">
+                                                    <option value="r.roomtype">-- Room Type  --</option>
+                                                </select>
                                             <form:hidden  class="form-control" value="{{r.roomtype}}" path="roomtype"></form:hidden>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
 
 
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Room Type ID :</label>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Room Type ID :</label>
                                             <form:input value="{{r.roomtypeid}}" class="form-control" Placeholder="Type ID"
                                                         type="text" path="roomtypeid" readonly="true" required="true"></form:input>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
 
 
-<!--                               =============================================================-->
-                                
-<!--
-                                <div class="form-group input-field col s6">
+                                    <!--                               =============================================================-->
 
+                                    <!--
+                                                                    <div class="form-group input-field col s6">
                                     
+                                                                        
+                                                                        </div>
+                                    -->
+
+
+                                    <div class="form-group">
+                                    <form:input type="file" name="fileToUpload" id="fileToUpload" path="stimage" required="true"></form:input>
                                     </div>
-                                -->
-                                
-                                
-                                   <div class="form-group">
-                                        <form:input type="file" name="fileToUpload" id="fileToUpload" path="stimage" required="true"></form:input>
-                                        </div>
 
 
 
@@ -349,9 +350,9 @@
                                     <tfoot>
                                         <tr>
                                             <th>Room Image</th>
-                                           
+
                                             <th>Room Id</th>
-                                             <th>Room Type</th>
+                                            <th>Room Type</th>
                                             <th>Room type ID</th>
                                             <th>Room Category ID </th>
                                             <th>Room Category Name </th>
@@ -368,14 +369,14 @@
                                             <td>{{Cat.roomtype}}</td>
                                             <td>{{Cat.roomtypeid}}</td>
                                             <td>{{Cat.catid}}</td>
-                                            
+
                                             <td>{{Cat.catname}}</td>
-                                             <td>{{Cat.roomnumber}}</td>
-                                           
+                                            <td>{{Cat.roomnumber}}</td>
+
                                             <td>{{Cat.roomrent}}</td>
 
                                             <td>
-                                                 <a href="editingroomname?getroom={{Cat.roomid}}"><button id="editbuttons" type="submit" class="btn btn-primary"><i class="far fa-edit"></i></button></a> <a href="removinroomname/{{Cat.roomid}}"><button  id="removebuttons" type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
+                                                <a href="editingroomname?getroom={{Cat.roomid}}"><button id="editbuttons" type="submit" class="btn btn-primary"><i class="far fa-edit"></i></button></a> <a href="removinroomname/{{Cat.roomid}}"><button  id="removebuttons" type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -383,12 +384,12 @@
                             </div>
                         </div>
                         <div class="card-footer small text-muted"><center>Updated yesterday at 11:59 PM</center>
-                </div>
-                       
+                        </div>
+
                     </div>
-                    
+
                 </div>
-                
+
                 <!-- /.container-fluid -->
 
                 <!-- Sticky Footer -->
@@ -457,16 +458,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
         <script>
-                                                        $(document).ready(function () {
-                                                            var date_input = $('input[name="purchasedate"]'); //our date input has the name "date"
-                                                            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-                                                            date_input.datepicker({
-                                                                format: 'yyyy/mm/dd',
-                                                                container: container,
-                                                                todayHighlight: true,
-                                                                autoclose: true,
+                                                            $(document).ready(function () {
+                                                                var date_input = $('input[name="purchasedate"]'); //our date input has the name "date"
+                                                                var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                                                                date_input.datepicker({
+                                                                    format: 'yyyy/mm/dd',
+                                                                    container: container,
+                                                                    todayHighlight: true,
+                                                                    autoclose: true,
+                                                                })
                                                             })
-                                                        })
         </script>
 
         <!--     Form code begins 
